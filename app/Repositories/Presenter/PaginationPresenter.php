@@ -36,12 +36,12 @@ class PaginationPresenter implements PaginationInterface
         return $this->paginator->currentPage() ?? 1;
     }
 
-    public function isFirstPage(): int
+    public function isFirstPage(): bool
     {
         return $this->paginator->onFirstPage();
     }
 
-    public function isLastPage(): int
+    public function isLastPage(): bool
     {
         return $this->paginator->onLastPage();
     }
