@@ -22,7 +22,7 @@ class SupportController extends Controller
     {
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
-            perPage: $request->get('per_page', 15),
+            perPage: $request->get('per_page', 5),
             filter: $request->filter
         );
 
@@ -43,7 +43,9 @@ class SupportController extends Controller
 
         $this->service->new(CreateSupportDTO::makeFromRequest($request));
 
-        return redirect()->route('supports.index');
+        return redirect()
+            ->route('supports.index')
+            ->with('message', 'Dúvida cadastrada com sucesso!');
     }
 
     public function show(string|int $id)
@@ -70,13 +72,16 @@ class SupportController extends Controller
 
         if (!$support) return back();
 
-        return redirect()->route('supports.index');
+        return redirect()
+            ->route('supports.index')
+            ->with('message', 'Dúvida alterada com sucesso!');
     }
 
     public function destroy(string|int $id)
     {
         $this->service->delete($id);
 
-        return redirect()->route('supports.index');
+        return redirect()->route('supports.index')
+            ->with('message', 'Dúvida excluída com sucesso!');
     }
 }

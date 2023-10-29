@@ -8,11 +8,12 @@
     <title>@yield('title') - {{ config('app.name') }}</title>
 </head>
 <body>
-    <div  class="container px-4 mx-auto">
+    <div  class="container px-4 mx-auto py-4">
     <header class="sm:flex sm:items-center sm:justify-between">
         @yield('header')
     </header>
     <div id="content">
+        <x-messages />
         @yield('content')
     </div>
     <footer>

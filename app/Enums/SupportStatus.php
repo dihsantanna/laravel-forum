@@ -5,7 +5,7 @@ namespace App\Enums;
 enum SupportStatus: string
 {
     case A = 'Aberto';
-    case C = 'Fechado';
+    case F = 'Fechado';
     case P = 'Pendente';
 
     public static function fromValues(string $status): string
